@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    var municipalidadId = ViewData["MunicipalidadId"];
+}
+<h1>@ViewData["Title"]</h1>
+
+<!-- Formulario de inicio de sesión -->
+<form method="post" asp-action="Dashboard" asp-controller="Home">
+    <input type="hidden" name="municipalidadId" value="@municipalidadId" />
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
