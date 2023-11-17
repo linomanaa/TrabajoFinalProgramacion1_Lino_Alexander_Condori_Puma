@@ -9,9 +9,11 @@ namespace MunicipalidadesMVC7.Data
         {
                 
         }
+
         //Agregar aqui los modelos
         public DbSet<Municipalidad> Municipalidades { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+
 
     }
 }

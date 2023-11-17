@@ -30,18 +30,25 @@ namespace MunicipalidadesMVC7.Controllers
                 return NotFound();
             }
 
+            // Pasa la municipalidad y el ID de la municipalidad a la vista
+            ViewData["Municipalidad"] = municipalidad;
+            ViewData["MunicipalidadId"] = municipalidadId;
+
             // Carga la lista completa de usuarios
             var usuarios = await _context.Usuarios.ToListAsync();
 
-            // Pasa la municipalidad y la lista de usuarios a la vista
-            ViewData["Municipalidad"] = municipalidad;
+            // Pasa la lista de usuarios a la vista
             return View(usuarios);
         }
 
+
         public async Task<IActionResult> Dashboard(int municipalidadId, string username, string password)
         {
+            var municipalidad = await _context.Municipalidades.FindAsync(municipalidadId);
+
             if (IsValidUser(username, password))
             {
+                ViewData["Municipalidad"] = municipalidad;
                 ViewData["MunicipalidadId"] = municipalidadId;
                 return View();
             }

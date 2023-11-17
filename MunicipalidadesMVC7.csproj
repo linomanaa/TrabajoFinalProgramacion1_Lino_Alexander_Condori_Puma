@@ -8,12 +8,20 @@
 
   <ItemGroup>
     <Compile Remove="NewFolder1\**" />
+    <Compile Remove="wwwroot\js\chart.js\**" />
     <Content Remove="NewFolder1\**" />
+    <Content Remove="wwwroot\js\chart.js\**" />
     <EmbeddedResource Remove="NewFolder1\**" />
+    <EmbeddedResource Remove="wwwroot\js\chart.js\**" />
     <None Remove="NewFolder1\**" />
+    <None Remove="wwwroot\js\chart.js\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\js\demo\chart-area-demo.js" />
+    <None Include="wwwroot\js\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\js\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\js\demo\datatables-demo.js" />
     <None Include="wwwroot\LogoGob.png" />
     <None Include="wwwroot\Municipalidades.txt" />
   </ItemGroup>

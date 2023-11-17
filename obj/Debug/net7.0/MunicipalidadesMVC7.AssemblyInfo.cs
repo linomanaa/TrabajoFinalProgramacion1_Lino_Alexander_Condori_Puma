@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MunicipalidadesMVC7")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c8af89fe57bf33071320c89d52dfa98f95b20c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("MunicipalidadesMVC7")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MunicipalidadesMVC7")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

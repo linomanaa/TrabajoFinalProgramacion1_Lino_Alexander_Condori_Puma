@@ -2,13 +2,82 @@
 
 @{
     ViewData["Title"] = "Municipalidades";
+    var i = 0;
 }
+@functions {
+    string GetOrderClass(bool isPar)
+    {
+        return isPar ? "order-lg-2" : "order-lg-1";
+    }
 
+    int GetImageNumber(int index)
+    {
+        // Asegúrate de tener suficientes imágenes para todas las municipalidades
+        return index + 1;
+    }
+}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Obtén todos los elementos que deseas filtrar
+        var municipalidadItems = $(".municipalidad-item");
+
+        // Agrega un evento al botón de búsqueda
+        $("#searchButton").on("click", function () {
+            // Obtén el valor de búsqueda
+            var searchTerm = $("#searchInput").val().toLowerCase();
+
+            // Filtra los elementos que coincidan con el término de búsqueda
+            municipalidadItems.each(function () {
+                var nombreMunicipalidad = $(this).find("h2").text().toLowerCase();
+                if (nombreMunicipalidad.includes(searchTerm)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+</script>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container px-5">
+        <a class="navbar-brand" href="#page-top">Sistema Alcaldias</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    </div>
+</nav>
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container px-5">
+            <h1 class="masthead-heading mb-0">Sistema de Gestion de las Municipalidades de Arequipa</h1>
+            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Empecemos</a>
+        </div>
+    </div>
+</header>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>AppManAlcaldia</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/css/styles.css" rel="stylesheet" />
+</head>
 <style>
     .municipalidad-item {
         list-style-type: none;
         margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
     }
+
+        .municipalidad-item.hidden {
+            display: none;
+        }
 </style>
 <nav class="navbar navbar-light bg-white border-top box-shadow mb-3">
     <div class="container-fluid">
@@ -19,33 +88,47 @@
         </form>
     </div>
 </nav>
-<div class="row">
-    <div class="col-sm-12 col-xs-12">
-        <h2>MUNICIPALIDADES</h2>
-    </div>
-</div>
-<div class="col-xs-12">
-    <!-- Barra de búsqueda inferior -->
- 
 
-    <div class="row">
-        <div class="col-sm-12">
-            <h4>&nbsp;</h4>
-        </div>
-        <div class="col-xs-12">
-            <ul>
-                @foreach (var municipalidad in Model)
-                {
-                    <li class="municipalidad-item">
-                        <a href="@Url.Action("Login", "Home", new { municipalidadId = municipalidad.Id })">
-                            @municipalidad.Nombre
-                        </a>
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
 </div>
+<section id="scroll">
+    <div class="container px-5">
+        @foreach (var municipalidad in Model)
+        {
+            var isPar = i % 2 == 0;
+
+            <div class="row gx-5 align-items-center municipalidad-item">
+                <div class="col-lg-6 @GetOrderClass(isPar)">
+                    <div class="p-5">
+                        @if (!string.IsNullOrEmpty(municipalidad.ImagenUrl))
+                        {
+                            <img class="img-fluid rounded-circle" src="@municipalidad.ImagenUrl" alt="..." />
+                        }
+                        else
+                        {
+                            <!-- Use a default image if the URL is not available -->
+                            <img class="img-fluid rounded-circle" src="assets/img/default.jpg" alt="Default Image" />
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-6 @GetOrderClass(!isPar)">
+                    <div class="p-5">
+                        <h2 class="display-4">@municipalidad.Nombre</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                        <a class="btn btn-primary btn-xl rounded-pill mt-5" href="@Url.Action("Login", "Home", new { municipalidadId = municipalidad.Id})">Ingresar</a>
+                    </div>
+                </div>
+            </div>
+
+            // Increment the counter
+            i++;
+        }
+    </div>
+</section>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2023 - MunicipalidadesMVC7 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyOz30DE5f5VAW+3lKkh5A8NqcwrO9aL8" crossorigin="anonymous"></script>
@@ -53,30 +136,4 @@
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 
-<script>
-    $(document).ready(function () {
-        // Captura del evento de clic en el botón de búsqueda y evento de teclado en el campo de búsqueda
-        $("#searchButton, #searchInput").on('click keypress', function (e) {
-            // Verifica si la tecla presionada es "Enter"
-            if ((e.which === 13 && e.type === 'keypress') || e.type === 'click') {
-                // Previene el envío del formulario (esto evita la recarga de la página)
-                e.preventDefault();
-
-                // Obtiene el valor del campo de búsqueda
-                var searchTerm = $("#searchInput").val().toLowerCase();
-
-                // Oculta o muestra las municipalidades según el término de búsqueda
-                $(".municipalidad-item").each(function () {
-                    var municipalidadNombre = $(this).text().toLowerCase();
-                    if (municipalidadNombre.includes(searchTerm)) {
-                        $(this).show();
-                    } else {
-                        $(this).hide();
-                    }
-                });
-            }
-        });
-    });
-
-</script>
 
