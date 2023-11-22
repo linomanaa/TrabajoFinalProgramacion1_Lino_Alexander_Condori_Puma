@@ -52,7 +52,7 @@ namespace MunicipalidadesMVC7.Migrations
                     table.PrimaryKey("PK_Usuarios", x => x.Id);
                 });
 
-            var municipalidadesToAdd = ReadFromTxt("D:\\MunicipalidadesMVC7\\MunicipalidadesMVC7\\wwwroot\\Municipalidades.txt");
+            var municipalidadesToAdd = ReadFromTxt("D:\\MunicipalidadesASPdotNET\\wwwroot\\Municipalidades.txt");
             foreach (var nombreMunicipalidad in municipalidadesToAdd)
             {
                 migrationBuilder.InsertData(

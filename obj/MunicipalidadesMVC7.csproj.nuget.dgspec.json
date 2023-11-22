@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MunicipalidadesMVC7\\MunicipalidadesMVC7\\MunicipalidadesMVC7.csproj": {}
+    "D:\\MunicipalidadesASPdotNET\\MunicipalidadesMVC7.csproj": {}
   },
   "projects": {
-    "D:\\MunicipalidadesMVC7\\MunicipalidadesMVC7\\MunicipalidadesMVC7.csproj": {
+    "D:\\MunicipalidadesASPdotNET\\MunicipalidadesMVC7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MunicipalidadesMVC7\\MunicipalidadesMVC7\\MunicipalidadesMVC7.csproj",
+        "projectUniqueName": "D:\\MunicipalidadesASPdotNET\\MunicipalidadesMVC7.csproj",
         "projectName": "MunicipalidadesMVC7",
-        "projectPath": "D:\\MunicipalidadesMVC7\\MunicipalidadesMVC7\\MunicipalidadesMVC7.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\MunicipalidadesMVC7\\MunicipalidadesMVC7\\obj\\",
+        "projectPath": "D:\\MunicipalidadesASPdotNET\\MunicipalidadesMVC7.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\MunicipalidadesASPdotNET\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\VSCommunity\\VSComplements\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -86,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

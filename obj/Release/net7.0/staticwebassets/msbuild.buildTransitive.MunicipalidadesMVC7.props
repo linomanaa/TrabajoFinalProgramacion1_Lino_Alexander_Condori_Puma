@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\MunicipalidadesMVC7.props" />
+</Project>
